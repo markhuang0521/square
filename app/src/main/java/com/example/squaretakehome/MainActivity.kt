@@ -65,10 +65,16 @@ fun EmployeeListSection(state: State, onRefresh: () -> Unit) {
         LceSection(state = state.employeeList,
             loading = { BlockingCircularProgressIndicator(isShowing = true) },
             error = {
-                Text(
-                    (state.employeeList as Lce.Error).exception.localizedMessage
-                        ?: "error please try to refresh again again"
-                )
+                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    item {
+                        if (!state.isRefreshing)
+                            Text(
+                                modifier = Modifier.fillMaxSize(),
+                                text = (state.employeeList as Lce.Error).exception.localizedMessage
+                                    ?: "error please try to refresh again again"
+                            )
+                    }
+                }
             }) { employees ->
             if (!state.isRefreshing) {
 
