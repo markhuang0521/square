@@ -20,7 +20,7 @@ architecture, this is the best MVVM pattern app I could build right now with hil
 in turn of feature api call error handling and the loading progress are my top priorities.
 
 ## What was the reason for your focus? What problems were you trying to solve?
-for any resonable app, we will always call the backend to get various data to display to the users, so the ability to gracefully handling error/edge case when networking is failing is so important to provide a enjoyable user experience.
+for any production app, we will always call the backend to get various data to display to the users, so the ability to gracefully handling error/edge case when networking is failing is so important to provide a enjoyable user experience.
 
 ## How long did you spend on this project?
 6 hours
@@ -34,6 +34,7 @@ testing
 
 ## Did you copy any code or dependencies? Please make sure to attribute them here!
 baseRepo from geekforgeeks
+
 LCE pattern from Instacart
 
 ## Is there any other information you’d like us to know?
