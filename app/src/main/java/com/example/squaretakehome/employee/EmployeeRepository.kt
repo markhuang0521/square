@@ -1,13 +1,13 @@
 package com.example.squaretakehome.employee
 
-import BaseRepo
-import com.example.squaretakehome.employee.model.EmployeeResponse
+import com.example.squaretakehome.util.BaseRepo
+import com.example.squaretakehome.employee.model.EmployeesResponse
 import com.example.squaretakehome.util.NetworkResult
 import javax.inject.Inject
 
 class EmployeeRepository @Inject constructor( private val employeeService: EmployeeService): BaseRepo() {
 
 
-    suspend fun getEmployees() :NetworkResult<List<EmployeeResponse>> = safeApiCall { employeeService.getEmployeesSuccess() }
+    suspend fun getEmployees() :NetworkResult<EmployeesResponse> = safeApiCall { employeeService.getEmployeesSuccess() }
 
 }

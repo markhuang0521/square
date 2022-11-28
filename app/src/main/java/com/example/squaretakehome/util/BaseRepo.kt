@@ -1,11 +1,12 @@
-import com.example.squaretakehome.util.NetworkResult
+package com.example.squaretakehome.util
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
-abstract class BaseRepo() {
+abstract class BaseRepo {
 
     // we'll use this function in all
     // repos to handle api errors.
@@ -20,31 +21,28 @@ abstract class BaseRepo() {
                 // function that will return response
                 // wrapped in Retrofit's Response class
                 val response: Response<T> = apiToBeCalled()
-
-                if (response.isSuccessful && response.body()!=null) {
-                    // In case of success response we
-                    // are returning Resource.Success object
-                    // by passing our data in it.
+                if (response.isSuccessful) {
+                    // when success response and body not nullable we are returning the body
+                    // and !! is needed since we cant accept nullable
 
                     NetworkResult.Success(data = response.body()!!)
                 } else {
-                    // Simply returning api's own failure message
-                    NetworkResult.Error(response.errorBody().toString())
+                    // Simply returning generic exception with nullable response body
+                    NetworkResult.Error(exception = Exception("nullable response body"))
                 }
 
             } catch (e: HttpException) {
                 // Returning HttpException's message
                 // wrapped in Resource.Error
-                NetworkResult.Error(errorMessage = e.message ?: "Something went wrong")
-            }
-            catch (e: IOException) {
+                NetworkResult.Error(exception = e)
+            } catch (e: IOException) {
                 // Returning no internet message
                 // wrapped in Resource.Error
-                NetworkResult.Error("Please check your network connection")
+                NetworkResult.Error(exception = e)
             } catch (e: Exception) {
                 // Returning 'Something went wrong' in case
                 // of unknown error wrapped in Resource.Error
-                NetworkResult.Error(errorMessage = "Something went wrong")
+                NetworkResult.Error(exception = e)
             }
         }
     }
