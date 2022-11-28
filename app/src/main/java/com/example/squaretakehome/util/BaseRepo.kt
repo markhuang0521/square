@@ -6,6 +6,7 @@ import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
+
 abstract class BaseRepo {
 
     // we'll use this function in all
