@@ -16,19 +16,18 @@
 simply download the zip and wait until all dependencies are installed and then run the app.
 
 ## What areas of the app did you focus on?
-architecture, this is the best MVVM pattern app I could build right now with hilt, retrofit, moshi and jetpack compose.
-in turn of feature the ability to show loading progress as well as refresh data was the top of my mind.
+architecture, this is the best MVVM pattern app I could build right now with hilt,moshi, coroutines, retrofit, and jetpack compose.
+in turn of feature api call error handling and the loading progress are my top priorities.
 
 ## What was the reason for your focus? What problems were you trying to solve?
-once set up with a clean pattern , any addidtional features that we need to build will be extremly stright forward and fast.
-when working in a large code base with so many feature/dependencies so it's quite important to decouple them into their own module  
+for any resonable app, we will always call the backend to get various data to display to the users, so the ability to gracefully handling error/edge case when networking is failing is so important to provide a enjoyable user experience.
 
 ## How long did you spend on this project?
 6 hours
 
 ## Did you make any trade-offs for this project? What would you have done differently with more time?
-I spend all my time to set up the hilt and making data models/ repository for the api calls so I did bare minimum in turn of UI design and testing.
-with more time would definitely work on those two areas a bit more.
+I spend all my time to set up the hilt and making data models/ repository for the api calls so I did the bare minimum in turn of UI design and testing.
+Especially I didn't set up the UI to handle when the JSON response is empty/malformed, so with more time would definitely working those.
 
 ## What do you think is the weakest part of your project?
 testing
@@ -39,4 +38,4 @@ LCE pattern from Instacart
 
 ## Is there any other information you’d like us to know?
 in all honesty, I'm quite satisfied with this project given the time constraint 
-so even if I didn’t make it to onsite this was still a great exercise for me Thanks!
+so even if I didn’t make it to onsite this was still a great exercise for me. Thanks!
